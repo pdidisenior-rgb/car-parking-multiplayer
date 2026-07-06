@@ -1,28 +1,29 @@
 {
-  "name": "car-parking-multiplayer",
+  "name": "tpa-noticias",
   "version": "1.0.0",
-  "description": "A multiplayer car parking game with real-time physics",
-  "main": "server/index.js",
-  "engines": {
-    "node": "18.x"
-  },
+  "description": "TikTok-style news video platform",
+  "main": "backend/index.js",
   "scripts": {
-    "server": "node server/index.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "client": "cd client && http-server -p 3000 -c-1",
-    "start": "node server/index.js"
+    "start": "node backend/index.js",
+    "dev": "nodemon backend/index.js",
+    "serve": "http-server frontend -p 3000 -c-1"
   },
-  "keywords": ["game", "multiplayer", "parking", "phaser"],
+  "keywords": ["news", "tiktok", "video", "social"],
   "author": "pdidisenior-rgb",
   "license": "MIT",
   "dependencies": {
     "express": "^4.18.2",
     "socket.io": "^4.5.4",
     "cors": "^2.8.5",
+    "firebase": "^9.23.0",
+    "axios": "^1.4.0",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "concurrently": "^7.0.0",
+    "nodemon": "^3.0.1",
     "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }

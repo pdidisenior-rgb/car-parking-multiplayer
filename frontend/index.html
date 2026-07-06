@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TPA Notícias - Plataforma de vídeos de notícias estilo TikTok">
+    <title>TPA Notícias | Notícias em Vídeo</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <!-- Feather Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app" class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo-container">
+                <div class="logo">🎬</div>
+                <span class="logo-text">TPA</span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <a href="#" class="nav-link" data-page="feed">
+                        <i class="fas fa-home"></i>
+                        <span>Para Ti</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="explore">
+                        <i class="fas fa-compass"></i>
+                        <span>Explorar</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="trending">
+                        <i class="fas fa-fire"></i>
+                        <span>Tendências</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="bookmarks">
+                        <i class="fas fa-bookmark"></i>
+                        <span>Guardados</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="sidebar-bottom">
+                <button class="upload-btn" id="uploadBtn">
+                    <i class="fas fa-plus"></i>
+                    <span>Criar</span>
+                </button>
+                
+                <div class="user-menu">
+                    <button class="user-btn" id="userMenuBtn">
+                        <img src="https://ui-avatars.com/api/?name=User&background=FF0050&color=fff" alt="Perfil" class="avatar">
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    
+                    <div class="dropdown-menu" id="userDropdown">
+                        <a href="#" class="dropdown-item" data-page="profile">
+                            <i class="fas fa-user"></i>
+                            <span>Meu Perfil</span>
+                        </a>
+                        <a href="#" class="dropdown-item" data-page="settings">
+                            <i class="fas fa-cog"></i>
+                            <span>Definições</span>
+                        </a>
+                        <hr class="dropdown-divider">
+                        <a href="#" class="dropdown-item" id="darkModeToggle">
+                            <i class="fas fa-moon"></i>
+                            <span>Modo Escuro</span>
+                        </a>
+                        <hr class="dropdown-divider">
+                        <a href="#" class="dropdown-item" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Sair</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header com Busca -->
+            <header class="top-header">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Procure notícias, criadores..." class="search-input">
+                </div>
+                
+                <div class="header-actions">
+                    <button class="header-btn" id="notificationBtn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    
+                    <div class="notifications-dropdown" id="notificationsDropdown">
+                        <div class="dropdown-header">
+                            <h3>Notificações</h3>
+                            <button class="close-btn">×</button>
+                        </div>
+                        <div class="notifications-list">
+                            <div class="notification-item">
+                                <img src="https://ui-avatars.com/api/?name=João&background=00D4FF&color=fff" alt="Utilizador">
+                                <div class="notification-content">
+                                    <p><strong>João Silva</strong> gostou do seu vídeo</p>
+                                    <small>há 2 minutos</small>
+                                </div>
+                            </div>
+                            <div class="notification-item">
+                                <img src="https://ui-avatars.com/api/?name=Maria&background=FF0050&color=fff" alt="Utilizador">
+                                <div class="notification-content">
+                                    <p><strong>Maria</strong> começou a seguir-te</p>
+                                    <small>há 5 minutos</small>
+                                </div>
+                            </div>
+                            <div class="notification-item">
+                                <img src="https://ui-avatars.com/api/?name=Pedro&background=00D4FF&color=fff" alt="Utilizador">
+                                <div class="notification-content">
+                                    <p><strong>Pedro</strong> comentou no seu vídeo</p>
+                                    <small>há 10 minutos</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Feed Container -->
+            <div class="feed-container">
+                <!-- Video Card Template (será preenchido por JS) -->
+                <div id="videoFeed" class="video-feed">
+                    <!-- Videos serão carregados aqui -->
+                </div>
+                
+                <!-- Loading Indicator -->
+                <div class="loading-container" id="loadingIndicator" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Carregando vídeos...</p>
+                </div>
+                
+                <!-- Empty State -->
+                <div class="empty-state" id="emptyState" style="display: none;">
+                    <i class="fas fa-inbox"></i>
+                    <h2>Nenhum vídeo encontrado</h2>
+                    <p>Tente ajustar seus filtros ou explore outras categorias</p>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Categories Bar (Mobile) -->
+        <div class="categories-bar-mobile">
+            <div class="categories-scroll">
+                <button class="category-btn active" data-category="all">Todos</button>
+                <button class="category-btn" data-category="politics">Política</button>
+                <button class="category-btn" data-category="technology">Tecnologia</button>
+                <button class="category-btn" data-category="sports">Desportos</button>
+                <button class="category-btn" data-category="entertainment">Entretenimento</button>
+                <button class="category-btn" data-category="health">Saúde</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modals -->
+    
+    <!-- Upload Modal -->
+    <div class="modal" id="uploadModal">
+        <div class="modal-content upload-form">
+            <button class="modal-close" id="closeUploadModal">×</button>
+            <h2>Criar Vídeo de Notícia</h2>
+            
+            <form id="videoUploadForm">
+                <div class="form-group">
+                    <label for="videoFile">Selecione o Vídeo</label>
+                    <div class="file-upload-area" id="fileUploadArea">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Clique ou arraste um vídeo aqui</p>
+                        <small>Máximo 500MB, MP4/WebM</small>
+                        <input type="file" id="videoFile" accept="video/*" hidden>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="videoTitle">Título</label>
+                    <input type="text" id="videoTitle" placeholder="Título da notícia" maxlength="100" required>
+                    <small id="titleCount">0/100</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="videoDescription">Descrição</label>
+                    <textarea id="videoDescription" placeholder="Descreva a notícia..." maxlength="500" rows="4"></textarea>
+                    <small id="descCount">0/500</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="videoCategory">Categoria</label>
+                    <select id="videoCategory" required>
+                        <option value="">Selecione uma categoria</option>
+                        <option value="politics">Política</option>
+                        <option value="technology">Tecnologia</option>
+                        <option value="sports">Desportos</option>
+                        <option value="entertainment">Entretenimento</option>
+                        <option value="health">Saúde</option>
+                        <option value="other">Outro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="videoCover">Miniatura (Opcional)</label>
+                    <input type="file" id="videoCover" accept="image/*">
+                </div>
+                
+                <button type="submit" class="btn btn-primary" id="submitUploadBtn">
+                    <i class="fas fa-upload"></i>
+                    Publicar
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Comments Modal -->
+    <div class="modal" id="commentsModal">
+        <div class="modal-content comments-panel">
+            <button class="modal-close" id="closeCommentsModal">×</button>
+            <h2>Comentários</h2>
+            
+            <div class="comments-list" id="commentsList">
+                <!-- Comments will be loaded here -->
+            </div>
+            
+            <div class="comment-input-area">
+                <img src="https://ui-avatars.com/api/?name=User&background=FF0050&color=fff" alt="Seu Avatar" class="comment-avatar">
+                <div class="comment-input-wrapper">
+                    <input type="text" id="commentInput" placeholder="Deixe um comentário..." class="comment-input">
+                    <button class="comment-send-btn" id="sendCommentBtn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Share Modal -->
+    <div class="modal" id="shareModal">
+        <div class="modal-content share-panel">
+            <button class="modal-close" id="closeShareModal">×</button>
+            <h2>Partilhar</h2>
+            
+            <div class="share-options">
+                <button class="share-option" id="shareWhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </button>
+                <button class="share-option" id="shareTwitter">
+                    <i class="fab fa-twitter"></i>
+                    <span>Twitter</span>
+                </button>
+                <button class="share-option" id="shareFacebook">
+                    <i class="fab fa-facebook"></i>
+                    <span>Facebook</span>
+                </button>
+                <button class="share-option" id="shareLink">
+                    <i class="fas fa-link"></i>
+                    <span>Copiar Link</span>
+                </button>
+            </div>
+            
+            <div class="share-link-container" id="shareLinkContainer" style="display: none;">
+                <input type="text" id="shareInput" class="share-input" readonly>
+                <button class="copy-btn" id="copyLinkBtn">Copiar</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+    
+    <!-- Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
