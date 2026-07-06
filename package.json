@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A multiplayer car parking game with real-time physics",
   "main": "server/index.js",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "server": "node server/index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
