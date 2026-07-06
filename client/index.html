@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Parking Multiplayer</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="game-container"></div>
+    
+    <!-- UI Overlay -->
+    <div id="ui-overlay">
+        <div id="main-menu" class="menu-screen">
+            <div class="menu-content">
+                <h1>🚗 Car Parking Multiplayer</h1>
+                <div class="menu-buttons">
+                    <button id="btn-new-game" class="btn btn-primary">Nova Partida</button>
+                    <button id="btn-join-game" class="btn btn-secondary">Entrar em Jogo</button>
+                    <button id="btn-settings" class="btn btn-secondary">Definições</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="game-hud" class="hidden">
+            <div class="hud-top">
+                <div class="player-info">
+                    <span id="player-name">Player</span>
+                    <span id="player-score">Score: 0</span>
+                </div>
+                <div class="game-info">
+                    <span id="game-time">00:00</span>
+                    <span id="players-count">1/4</span>
+                </div>
+            </div>
+            <div class="hud-bottom">
+                <div id="controls-help" class="controls-info">
+                    <p>↑↓←→ ou WASD - Mover | ESPAÇO - Freio | Esc - Menu</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="lib/phaser.min.js"></script>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/scenes/BootScene.js"></script>
+    <script src="js/scenes/MenuScene.js"></script>
+    <script src="js/scenes/GameScene.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
